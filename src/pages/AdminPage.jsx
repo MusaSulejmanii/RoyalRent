@@ -161,7 +161,14 @@ const AdminWrapper = () => {
           content="https://royal-rent.vercel.app/assets/logo.png"
         />
       </Helmet>
-
+      <div style={{ display: "none" }}>
+        <a href="/">Home</a>
+        <a href="/vehicles">Vehicles</a>
+        <a href="/aboutus">About Us</a>
+        <a href="/news">News</a>
+        <a href="/admin">Admin Dashboard</a>
+      </div>
+      ;
       <Header />
       <AdminPage />
     </>
