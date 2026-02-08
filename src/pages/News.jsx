@@ -5,24 +5,28 @@ import { Breadcrumb, Row, Col } from "antd";
 import { useNavigate } from "react-router-dom";
 import "../styles/News.css";
 
-const API_KEY = "0e8a502d091b4324b6d65449263f781b";
-const API_URL = `https://newsapi.org/v2/everything?q=cars OR automotive&language=en&sortBy=publishedAt&pageSize=15&apiKey=${API_KEY}`;
-
 const News = () => {
   const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const pageSize = 6; // change if you want more articles
+  const [page, setPage] = useState(1);
+
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [page]);
 
   const fetchPosts = async () => {
     try {
       setLoading(true);
-      const res = await fetch(API_URL);
+      const res = await fetch(`/api/news?page=${page}&pageSize=${pageSize}`);
       const data = await res.json();
-      setPosts(data.articles || []);
+      if (page === 1) {
+        setPosts(data.articles || []);
+      } else {
+        setPosts((prev) => [...prev, ...(data.articles || [])]);
+      }
     } catch (err) {
       console.error("Failed to fetch posts:", err);
     } finally {
@@ -62,7 +66,7 @@ const News = () => {
         <div className="container">
           <div className="blog-grid">
             {loading
-              ? Array.from({ length: 6 }).map((_, i) => (
+              ? Array.from({ length: pageSize }).map((_, i) => (
                   <div key={i} className="blog-card skeleton">
                     <div className="blog-image skeleton-image"></div>
                     <div className="blog-content">
@@ -94,6 +98,17 @@ const News = () => {
                   </div>
                 ))}
           </div>
+
+          {!loading && posts.length > 0 && (
+            <div style={{ textAlign: "center", marginTop: 20 }}>
+              <button
+                onClick={() => setPage((prev) => prev + 1)}
+                className="load-more-btn"
+              >
+                Load More
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
