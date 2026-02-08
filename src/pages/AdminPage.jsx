@@ -36,7 +36,6 @@ const COLORS = {
   gradient: "linear-gradient(135deg, #e68600 0%, #ff9500 50%, #6b46c1 100%)",
 };
 
-// Simple PageTitle component
 const PageTitle = ({ children }) => (
   <h1 style={{ fontSize: 28, fontWeight: "bold", marginBottom: 10 }}>
     {children}
