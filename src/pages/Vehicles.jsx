@@ -68,8 +68,20 @@ const Vehicles = () => {
             ]}
           />
 
-          <div className="cars-header" style={{ marginTop: 20 }}>
+          <div
+            className="cars-header"
+            style={{
+              marginTop: 20,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+            }}
+          >
             <h2 className="section-title">Choose the car that suits you</h2>
+            <span>
+              Find the right car exactly when you need it. Our fleet is
+              available for instant booking 24/7 across multiple city hubs.
+            </span>
           </div>
 
           {bookingData && (

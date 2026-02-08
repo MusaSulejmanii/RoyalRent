@@ -7,7 +7,7 @@ const FactsSection = () => {
   const facts = [
     {
       id: 1,
-      number: 50,
+      number: 20,
       suffix: "+",
       label: "Total cars",
       icon: "./assets/orange-car-icon.png",

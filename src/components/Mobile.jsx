@@ -31,7 +31,7 @@ const Mobile = () => {
         </div>
       </div>
 
-      <div className="image-side">
+      <div className="image-side" style={{ display: "none" }}>
         <img
           src="./assets/phones.png"
           alt="Mobile App Preview"

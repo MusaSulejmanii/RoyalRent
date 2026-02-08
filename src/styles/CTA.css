@@ -183,7 +183,7 @@
 
 @media (max-width: 640px) {
   .cta-section {
-    padding: 40px 20px;
+    display: none;
   }
 
   .cta-container {
