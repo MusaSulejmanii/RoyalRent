@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin
+
+Sitemap: https://royal-rent.vercel.app/sitemap.xml
