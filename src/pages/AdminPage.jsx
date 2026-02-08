@@ -25,6 +25,7 @@ import {
   DeleteOutlined,
 } from "@ant-design/icons";
 import Header from "../components/Header";
+import { Helmet } from "react-helmet";
 
 const API_URL = "https://69845033885008c00db0b870.mockapi.io/api/cars/cars";
 const ADMIN_PASSWORD = "admin";
@@ -126,6 +127,41 @@ const AdminWrapper = () => {
 
   return (
     <>
+      {/* SEO for Admin Page */}
+      <Helmet>
+        <title>RoyalRent Admin Dashboard</title>
+        <meta
+          name="description"
+          content="Manage cars, bookings, and statistics in the RoyalRent admin dashboard."
+        />
+        <meta
+          name="keywords"
+          content="RoyalRent, admin, dashboard, car rental, manage cars, bookings"
+        />
+        <meta name="author" content="Musa Sulejmani" />
+        <meta property="og:title" content="RoyalRent Admin Dashboard" />
+        <meta
+          property="og:description"
+          content="Manage your car rental inventory, view stats, and update car details easily in RoyalRent admin dashboard."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://royal-rent.vercel.app/admin" />
+        <meta
+          property="og:image"
+          content="https://royal-rent.vercel.app/assets/logo.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="RoyalRent Admin Dashboard" />
+        <meta
+          name="twitter:description"
+          content="Manage cars, bookings, and view statistics in RoyalRent admin dashboard."
+        />
+        <meta
+          name="twitter:image"
+          content="https://royal-rent.vercel.app/assets/logo.png"
+        />
+      </Helmet>
+
       <Header />
       <AdminPage />
     </>
